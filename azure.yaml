@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: api-development
+workflows:
+  up:
+    steps:
+        - azd: provision
+        - azd: deploy --all
+resourceGroup: appsvc_linux_centralus
+# /subscriptions/b0fad36f-3c4b-4e39-83a9-e2c4f158b57a/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/api-dev-env
+services:
+  api-dev-env:
+    project: .
+    language: ts
+    host: appservice
+    resourceName: api-dev-env

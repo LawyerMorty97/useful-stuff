@@ -5,13 +5,14 @@
   "main": "src/index.js",
   "scripts": {
     "clean": "rimraf ./dist",
-    "build:api": "npx tsc -p tsconfig.api.json",
-    "build:functions": "npx tsc -p tsconfig.functions.json",
+    "build:api": "npm run clean && npx tsc -p tsconfig.api.json",
+    "build:functions": "npm run clean && npx tsc -p tsconfig.functions.json",
     "build": "npm run clean && npx concurrently \"npm run build:api\" \"npm run build:functions\"",
-    "start:api": "node dist/api/index.js",
-    "start:api:dev": "nodemon src/api/index.ts",
-    "start:functions": "npm run build:functions && func start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "api:start": "npm run build:api && node dist/api/index.js",
+    "api:start:dev": "nodemon src/api/index.ts",
+    "functions:start": "npm run build:functions && func start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "tsc -p tsconfig.functions.json -w"
   },
   "keywords": [],
   "author": "",

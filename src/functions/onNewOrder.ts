@@ -14,6 +14,7 @@ export const onNewOrder = async (request: HttpRequest, context: InvocationContex
   return {
     status: 200,
     jsonBody: {
+      work: "It worked!",
       env: process.env
     }
   };

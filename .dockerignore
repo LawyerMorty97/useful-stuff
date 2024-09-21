@@ -1,0 +1,4 @@
+node_modules
+dist
+src/functions
+tsconfig.functions.json
