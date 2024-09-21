@@ -1,1 +1,5 @@
-console.log("Azure functions");
+import { onNewOrder } from "./onNewOrder";
+
+module.exports = {
+  onNewOrder
+};

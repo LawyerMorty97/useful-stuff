@@ -4,18 +4,20 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "clean": "rm -rf ./dist",
+    "clean": "rimraf ./dist",
     "build:api": "npx tsc -p tsconfig.api.json",
     "build:functions": "npx tsc -p tsconfig.functions.json",
     "build": "npm run clean && npx concurrently \"npm run build:api\" \"npm run build:functions\"",
     "start:api": "node dist/api/index.js",
     "start:api:dev": "nodemon src/api/index.ts",
+    "start:functions": "npm run build:functions && func start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@azure/functions": "^4.5.1",
     "dotenv": "^16.4.5",
     "express": "^4.21.0"
   },
@@ -23,5 +25,6 @@
     "@types/express": "^4.17.21",
     "@types/node": "^22.5.5",
     "typescript": "^5.6.2"
-  }
+  },
+  "main": "dist/functions/index.js"
 }
