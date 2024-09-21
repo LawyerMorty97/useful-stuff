@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/api"
+  },
+  "extends": "./tsconfig.json",
+  "exclude": [
+    "src/functions"
+  ]
+}
